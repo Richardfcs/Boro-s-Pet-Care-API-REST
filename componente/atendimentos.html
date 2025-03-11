@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Consultas</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <a class="titulo navbar-brand titulo" href="../home.html">Boro's Pet Care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body opacity-75">
+          <strong>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item d-flex justify-content-between align-items-center">
+                <div class=" d-flex justify-content-center align-items-center">
+                  <a class="nav-link active pe-2" aria-current="page" href="./perfil.html"
+                    id="link-perfil-nome">Perfil</a>
+                  <a aria-current="page" href="./perfil.html">
+                    <a aria-current="page" href="componente/perfil.html"><img src="../img/man.jpg"
+                        class="img-fluid rounded-circle" alt="..." style="width: 50px; height: 50px;"></a>
+                </div>
+                <div data-bs-dismiss="offcanvas">
+                  <a href="./pets.html" aria-current="page" class="">Pets</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../home.html">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./vacinas.html">Vacinas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./atendimentos.html">Atendimentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./funeraria.html">Funerária</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./petshop.html">Área Pets</a>
+              </li>
+            </ul>
+          </strong>
+          <form class="d-flex mt-3 mb-5" role="search">
+            <input class="form-control me-2" type="search" placeholder="Produtos" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <header class="colorido-azul rounded py-3 mb-4">
+      <div class="d-flex align-items-center ps-5">
+        <img src="../img/pastor.jpg" alt="Imagem do Pet" class="rounded-circle me-3" style="width: 60px; height: 60px;">
+        <h1 class="h3 mb-0">Agende sua Consulta</h1>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <h1 class="mb-4">Atendimentos do Dia</h1>
+      <p class="mb-4">Selecione os atendimentos desejados para hoje em cada estabelecimento.</p>
+      <div class="mb-4">
+        <div class="card">
+          <div class="card-header text-white atendimentosTitulo">
+            Clínica Veterinária São Francisco - Local: Av. São Francisco, 123
+          </div>
+          <div class="card-body">
+            <p class="card-text">Consulta de Rotina</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime09CVSF_CR" class="toggleNotify" hidden>
+                <label for="toggleTime09CVSF_CR" class="btn w-100 alternativeCheck">09:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime10CVSF_CR" class="toggleNotify" hidden>
+                <label for="toggleTime10CVSF_CR" class="btn w-100 alternativeCheck">10:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime11CVSF_CR" class="toggleNotify" hidden>
+                <label for="toggleTime11CVSF_CR" class="btn w-100 alternativeCheck">11:00</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header text-white atendimentosTitulo">
+            Clínica Veterinária São Francisco - Local: Av. São Francisco, 123
+          </div>
+          <div class="card-body">
+            <p class="card-text">Vacinação</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime14CVSF_VAC" class="toggleNotify" hidden>
+                <label for="toggleTime14CVSF_VAC" class="btn w-100 alternativeCheck">14:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime15CVSF_VAC" class="toggleNotify" hidden>
+                <label for="toggleTime15CVSF_VAC" class="btn w-100 alternativeCheck">15:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime16CVSF_VAC" class="toggleNotify" hidden>
+                <label for="toggleTime16CVSF_VAC" class="btn w-100 alternativeCheck">16:00</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-4">
+        <div class="card">
+          <div class="card-header text-white atendimentosTitulo">
+            Centro de Saúde Animal Boro's Pet - Local: Rua Boro, 456
+          </div>
+          <div class="card-body">
+            <p class="card-text">Consulta de Rotina</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime0830BPS_CR" class="toggleNotify" hidden>
+                <label for="toggleTime0830BPS_CR" class="btn w-100 alternativeCheck">08:30</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime0930BPS_CR" class="toggleNotify" hidden>
+                <label for="toggleTime0930BPS_CR" class="btn w-100 alternativeCheck">09:30</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1030BPS_CR" class="toggleNotify" hidden>
+                <label for="toggleTime1030BPS_CR" class="btn w-100 alternativeCheck">10:30</label>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Check-up Completo</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1300BPS_CK" class="toggleNotify" hidden>
+                <label for="toggleTime1300BPS_CK" class="btn w-100 alternativeCheck">13:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1430BPS_CK" class="toggleNotify" hidden>
+                <label for="toggleTime1430BPS_CK" class="btn w-100 alternativeCheck">14:30</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1600BPS_CK" class="toggleNotify" hidden>
+                <label for="toggleTime1600BPS_CK" class="btn w-100 alternativeCheck">16:00</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1800BPS_CK" class="toggleNotify" hidden>
+                <label for="toggleTime1800BPS_CK" class="btn w-100 alternativeCheck">18:00</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-4">
+        <div class="card">
+          <div class="card-header text-white atendimentosTitulo">
+            Hospital Veterinário Central - Local: Av. Central, 789
+          </div>
+          <div class="card-body">
+            <p class="card-text">Consulta de Emergência</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1010HVC_EM" class="toggleNotify" hidden>
+                <label for="toggleTime1010HVC_EM" class="btn w-100 alternativeCheck">10:10</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1120HVC_EM" class="toggleNotify" hidden>
+                <label for="toggleTime1120HVC_EM" class="btn w-100 alternativeCheck">11:20</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1230HVC_EM" class="toggleNotify" hidden>
+                <label for="toggleTime1230HVC_EM" class="btn w-100 alternativeCheck">12:30</label>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Consulta de Retorno</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1330HVC_RT" class="toggleNotify" hidden>
+                <label for="toggleTime1330HVC_RT" class="btn w-100 alternativeCheck">13:30</label>
+              </div>
+              <div class="col-4">
+                <input type="checkbox" id="toggleTime1430HVC_RT" class="toggleNotify" hidden>
+                <label for="toggleTime1430HVC_RT" class="btn w-100 alternativeCheck">14:30</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success mt-4 col-12" id="confirmarAgendamento">
+          Confirmar Agendamento
+        </button>
+      </div>
+  
+    </div>
+    </div>
+    <div class="container-fluid">
+      <h1 class="mb-4">Marcação</h1>
+      <p class="mb-4">Selecione onde e quando você pode ser atendido.</p>
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <label for="unidade" class="form-label">Unidade de Atendimento</label>
+          <select id="unidade" class="form-select">
+            <option value="">Selecione a Unidade</option>
+            <option value="clinicaSF">Clínica Veterinária São Francisco</option>
+            <option value="centroBP">Centro de Saúde Animal Boro's Pet</option>
+            <option value="petCentral">Hospital Veterinário Central</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="tipoConsulta" class="form-label">Tipo de Consulta</label>
+          <select id="tipoConsulta" class="form-select">
+            <option value="">Selecione o Tipo</option>
+            <option value="rotina">Consulta de Rotina</option>
+            <option value="vacina">Vacinação</option>
+            <option value="checkup">Check-up Completo</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="dataConsulta" class="form-label">Data</label>
+          <input type="date" id="dataConsulta" class="form-control">
+        </div>
+      </div>
+  
+      <h2 class="h5 mb-3">Horários Disponíveis</h2>
+      <div id="horariosDisponiveis" class="row g-3">
+        <div class="col-6 col-md-3">
+          <input type="checkbox" id="toggleTime09" class="toggleNotify" hidden>
+          <label for="toggleTime09" class="btn w-100 alternativeCheck">
+            09:00
+          </label>
+        </div>
+        <div class="col-6 col-md-3">
+          <input type="checkbox" id="toggleTime1030" class="toggleNotify" hidden>
+          <label for="toggleTime1030" class="btn w-100 alternativeCheck">
+            10:30
+          </label>
+        </div>
+        <div class="col-6 col-md-3">
+          <input type="checkbox" id="toggleTime11" class="toggleNotify" hidden>
+          <label for="toggleTime11" class="btn w-100 alternativeCheck">
+            10:30
+          </label>
+        </div>
+        <div class="col-6 col-md-3">
+          <input type="checkbox" id="toggleTime14" class="toggleNotify" hidden>
+          <label for="toggleTime14" class="btn w-100 alternativeCheck">
+            14:00
+          </label>
+        </div>
+      </div>
+      <div class="mt-4 mb-3">
+        <button type="button" class="btn btn-success" id="confirmarAgendamento">
+          Confirmar Agendamento
+        </button>
+      </div>
+    </div>
+  <script src="../main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

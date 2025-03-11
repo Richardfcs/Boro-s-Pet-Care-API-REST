@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Pet</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary fixed-top mb-5">
+    <div class="container-fluid">
+        <a class="titulo navbar-brand titulo" href="home.html">Boro's Pet Care</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body opacity-75">
+                <strong>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item d-flex justify-content-between align-items-center">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <a class="nav-link active pe-2" aria-current="page"
+href="componente/perfil.html" id="link-perfil-nome">Perfil</a> 
+<a aria-current="page" href="componente/perfil.html">
+                                <a aria-current="page" href="componente/perfil.html" ><img
+                                        src="img/man.jpg" class="img-fluid rounded-circle" alt="..."
+                                        style="width: 50px; height: 50px;"></a>
+                            </div>
+                            <div data-bs-dismiss="offcanvas">
+                                <a href="componente/pets.html" aria-current="page"  class="">Pets</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home.html"
+                                >Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="componente/vacinas.html"
+                                >Vacinas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="componente/atendimentos.html"
+                                >Atendimentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="componente/funeraria.html"
+                                >Funerária</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="componente/petshop.html"
+                                >Área Pets</a>
+                        </li>
+                    </ul>
+                </strong>
+                <form class="d-flex mt-3 mb-5" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Produtos" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+  <h5 class="text-center mb-3 mt-5 pt-2">Vamos começar a registrar seu pet para um atendimento personalizado!</h5>
+  <section class="areaDeForms container p-5 mt-0 col-11 col-md-7 col-lg-4">
+    <form class="row g-2 needs-validation" novalidate>
+      <div class="form-check">
+        <p>Qual é seu pet?</p>
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+        <label class="form-check-label" for="validationFormCheck2">Cachorro</label>
+      </div>
+      <div class="form-check mb-3">
+        <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+        <label class="form-check-label" for="validationFormCheck3">Gato</label>
+      </div>
+      </div>
+      <div class="form-check">
+        <p>Qual o gênero do seu pet?</p>
+        <input type="radio" class="form-check-input" id="validationFormCheck4" name="radio-stacked1" required>
+        <label class="form-check-label" for="validationFormCheck4">Macho</label>
+      </div>
+      <div class="form-check mb-3">
+        <input type="radio" class="form-check-input" id="validationFormCheck5" name="radio-stacked1" required>
+        <label class="form-check-label" for="validationFormCheck5">Fêmea</label>
+      </div>
+      </div>
+      <div class="">
+        <p>Qual o nome do seu pet?</p>
+        <input type="text" class="form-control" id="validationTooltip01" placeholder="escreva seu nome" required>
+      </div>
+      <div class="position-relative">
+        <label for="validationTooltip04" class="form-label">Qual a Raça de seu pet?</label>
+        <select class="form-select" id="validationTooltip04" required>
+          <option value="">Escolha 1</option>
+          <option>Vira-lata</option>
+          <option>Pastor Alemão</option>
+          <option>Ruski Siberiano</option>
+          <option>Salsicha</option>
+          <option>Lavrador</option>
+        </select>
+      </div>
+      <div class="position-relative">
+        <label for="validationTooltip04" class="form-label">Qual a idade de seu pet?</label>
+        <select class="form-select" id="validationTooltip04" required>
+          <option value="">Escolha 1</option>
+          <option>0-1 ano (filhote)</option>
+          <option>1-2 anos (adolescente)</option>
+          <option>2-7 anos (adulto)</option>
+          <option>7-10 anos (Sênior)</option>
+          <option>10+ (Geriátrico )</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Foto do Pet</label>
+        <input class="form-control" type="file" id="formFile" required>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary col-12" type="submit"><a href="componente/pets.html">Cadastrar</a></button>
+      </div>
+    </form>
+  </section>
+</body>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</html>

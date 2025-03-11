@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>funerária</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="../bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <a class="titulo navbar-brand titulo" href="../home.html">Boro's Pet Care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body opacity-75">
+          <strong>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item d-flex justify-content-between align-items-center">
+                <div class=" d-flex justify-content-center align-items-center">
+                  <a class="nav-link active pe-2" aria-current="page" href="./perfil.html"
+                    id="link-perfil-nome">Perfil</a>
+                  <a aria-current="page" href="./perfil.html">
+                    <a aria-current="page" href="componente/perfil.html"><img src="../img/man.jpg"
+                        class="img-fluid rounded-circle" alt="..." style="width: 50px; height: 50px;"></a>
+                </div>
+                <div data-bs-dismiss="offcanvas">
+                  <a href="./pets.html" aria-current="page" class="">Pets</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../home.html">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./vacinas.html">Vacinas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./atendimentos.html">Atendimentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./funeraria.html">Funerária</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./petshop.html">Área Pets</a>
+              </li>
+            </ul>
+          </strong>
+          <form class="d-flex mt-3 mb-5" role="search">
+            <input class="form-control me-2" type="search" placeholder="Produtos" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <header class="funeral rounded py-3 mb-4">
+    <div class="d-flex align-items-center ps-5">
+      <img src="../img/pastor.jpg" alt="Imagem do Pet" class="rounded-circle me-3" style="width: 60px; height: 60px;">
+      <h1 class="h3 mb-0">Agendamentos Funerários</h1>
+    </div>
+  </header>
+
+  <div class="container my-5 col-12 col-md-8 col-lg-7">
+    <h1 class="mb-4">Plano Funerária</h1>
+    <p class="mb-4">Selecione os horários desejados para os serviços funerários do seu pet.</p>
+
+    <div class="card mb-4">
+      <div class="funeral card-header text-white atendimentosTitulo">
+        Funerária Pet - Cerimônia de Despedida
+      </div>
+      <div class="card-body">
+        <p class="card-text">Local: Rua da Memória, 100</p>
+        <div class="row g-2">
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1000FP_CD" class="toggleNotify" hidden>
+            <label for="toggleTime1000FP_CD" class="btn w-100 alternativeCheck">10:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1100FP_CD" class="toggleNotify" hidden>
+            <label for="toggleTime1100FP_CD" class="btn w-100 alternativeCheck">11:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1200FP_CD" class="toggleNotify" hidden>
+            <label for="toggleTime1200FP_CD" class="btn w-100 alternativeCheck">12:00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="funeral card-header text-white atendimentosTitulo">
+        Funerária Pet - Cremação e Homenagem
+      </div>
+      <div class="card-body">
+        <p class="card-text">Local: Av. do Adeus, 200</p>
+        <div class="row g-2">
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1400FP_CH" class="toggleNotify" hidden>
+            <label for="toggleTime1400FP_CH" class="btn w-100 alternativeCheck">14:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1500FP_CH" class="toggleNotify" hidden>
+            <label for="toggleTime1500FP_CH" class="btn w-100 alternativeCheck">15:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1600FP_CH" class="toggleNotify" hidden>
+            <label for="toggleTime1600FP_CH" class="btn w-100 alternativeCheck">16:00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="funeral card-header text-white atendimentosTitulo">
+        Funerária Pet - Atendimento Personalizado
+      </div>
+      <div class="card-body">
+        <p class="card-text">Local: Alameda do Adeus, 300</p>
+        <div class="row g-2">
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1700FP_AP" class="toggleNotify" hidden>
+            <label for="toggleTime1700FP_AP" class="btn w-100 alternativeCheck">17:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1800FP_AP" class="toggleNotify" hidden>
+            <label for="toggleTime1800FP_AP" class="btn w-100 alternativeCheck">18:00</label>
+          </div>
+          <div class="col-4">
+            <input type="checkbox" id="toggleTime1900FP_AP" class="toggleNotify" hidden>
+            <label for="toggleTime1900FP_AP" class="btn w-100 alternativeCheck">19:00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="funeral card-header text-white" style="background-color: #343a40;">
+        Mensagem de Apoio
+      </div>
+      <div class="card-body">
+        <p class="card-text">Deseja deixar uma mensagem ou uma homenagem para seu pet? Utilize o campo abaixo:</p>
+        <textarea class="form-control" rows="3" placeholder="Escreva sua mensagem aqui..."></textarea>
+      </div>
+    </div>
+
+    <div class="mt-4 text-center">
+      <button type="button" class="btn btn-success" id="confirmarFuneraria">
+        Confirmar Seleção
+      </button>
+    </div>
+    <div class="map-responsive mt-3">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126409.52533899233!2d-34.94117918882141!3d-8.071091468589145!2m3!1f0!2f0!3f2!3m2!1i1024!2i768!4f13.1!2m1!1sfuner%C3%A1ria%20animais!5e0!3m2!1spt-BR!2sbr!4v1741720950496!5m2!1spt-BR!2sbr" 
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  </div>
+</body>
+<script src="../main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,218 @@
+body {
+    background-color: #FFF8E8 !important;
+    text-decoration: none;
+}
+
+.pagina1 {
+    background-image: url('img/animais.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-position: top !important;
+    margin-top: 7.5vh;
+    height: 65vh;
+    width: 100vh;
+}
+
+.tituloalternativo {
+    font-family: Arial;
+    color: white !important;
+    -webkit-text-stroke: 2px #B2D8D8;
+}
+
+h5,
+.h5 {
+    color: #C8A2C8 !important;
+}
+
+a {
+    color: #C8A2C8 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #B2D8D8 !important;
+}
+
+input,
+option,
+select {
+    color: #C8A2C8 !important;
+    font-weight: bold;
+}
+
+.form-label {
+    color: #B2D8D8 !important;
+}
+
+form {
+    color: #B2D8D8 !important;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.areaDeForms {
+    background-color: rgba(var(--bs-tertiary-bg-rgb)) !important;
+    border-radius: 5%;
+}
+
+button {
+    color: #C8A2C8 !important;
+    background-color: #FFF8E8 !important;
+    border-color: #C8A2C8 !important;
+}
+
+button:hover {
+    background-color: #B2D8D8 !important;
+    border-color: #B2D8D8 !important;
+}
+
+.form-check-input :checked {
+    background-color: #C8A2C8 !important;
+}
+
+.parte2 {
+    background-color: #B2D8D8 !important;
+    color: #FFF8E8 !important;
+}
+
+.form-check-label {
+    color: #C8A2C8;
+}
+
+.carrara {
+    border-style: solid;
+    border-color: #FFF8E8 !important;
+    border-width: 10px;
+}
+
+.alternativebody {
+    background-color: #B2D8D8 !important;
+}
+
+.lojao {
+    padding: 10%;
+    border-radius: 90%;
+    background-color: #A8D5BA !important;
+}
+
+.botaod {
+    button {
+        color: #A8D5BA !important;
+        background-color: #FFF8E8 !important;
+        border-color: #A8D5BA !important;
+    }
+
+    button:hover {
+        color: #FFC1CC !important;
+        background-color: #ffffff !important;
+        border-color: #FFC1CC !important;
+    }
+}
+
+.colorido {
+    background-color: #A8D5BA !important;
+}
+
+.colorido-azul {
+    background-color: #B2D8D8;
+}
+
+.card {
+    background-color: #A8D5BA !important;
+    color: #FFF8E8 !important;
+    border-bottom: #A8D5BA !important;
+    font-family: Arial;
+}
+
+.card2 {
+    background-color: #FFC1CC !important;
+    color: #FFF8E8 !important;
+    border-bottom: #FFC1CC !important;
+    font-family: Arial;
+}
+
+.card .btn {
+    background-color: #FFF8E8 !important;
+    color: #C8A2C8 !important;
+    border-color: #C8A2C8 !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggleNotify:checked+.btn {
+    background-color: #B2D8D8 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.alternativeCheck {
+    color: #C8A2C8 !important;
+    border-color: #C8A2C8 !important;
+}
+
+.alternativeCheck:hover {
+    background-color: #C8A2C8 !important;
+    color: #ffffff !important;
+}
+
+.atendimentosTitulo {
+    background-color: #B2D8D8 !important;
+}
+
+.funeral {
+    background-color: #343a40 !important;
+    color: #FFF8E8;
+}
+
+.categoria-card {
+    position: relative;
+    color: #fff;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border: none;
+    border-width: 2px !important;
+    border-color: #C8A2C8 !important;
+}
+
+.categoria-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.categoria-card .card-body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoria-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.inicio {
+    background-color: #C8A2C8 !important;
+    color: #ffffff;
+}
+.map-responsive {
+    overflow: hidden; /* Esconde overflow do iframe se necessário */
+    padding-bottom: 75%; /* Proporção 4:3 (ajuste conforme necessário - ex: 100% para 1:1, 56.25% para 16:9) */
+    position: relative; /* Posicionamento relativo para o container */
+    height: 0; /* Altura zero, a proporção do padding-bottom define a altura */
+}
+
+.map-responsive iframe {
+    left: 0; /* Alinha o iframe à esquerda do container */
+    top: 0; /* Alinha o iframe ao topo do container */
+    height: 100%; /* Iframe ocupa 100% da altura do container */
+    width: 100%; /* Iframe ocupa 100% da largura do container */
+    position: absolute; /* Posicionamento absoluto para o iframe dentro do container */
+}

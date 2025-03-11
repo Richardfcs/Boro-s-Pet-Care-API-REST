@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfil</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="../bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+          <a class="titulo navbar-brand titulo" href="../home.html">Boro's Pet Care</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body opacity-75">
+              <strong>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item d-flex justify-content-between align-items-center">
+                    <div class=" d-flex justify-content-center align-items-center">
+                      <a class="nav-link active pe-2" aria-current="page" href="./perfil.html"
+                        id="link-perfil-nome">Perfil</a>
+                      <a aria-current="page" href="./perfil.html">
+                        <a aria-current="page" href="componente/perfil.html"><img src="../img/man.jpg"
+                            class="img-fluid rounded-circle" alt="..." style="width: 50px; height: 50px;"></a>
+                    </div>
+                    <div data-bs-dismiss="offcanvas">
+                      <a href="./pets.html" aria-current="page" class="">Pets</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="../home.html">Início</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./vacinas.html">Vacinas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./atendimentos.html">Atendimentos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./funeraria.html">Funerária</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./petshop.html">Área Pets</a>
+                  </li>
+                </ul>
+              </strong>
+              <form class="d-flex mt-3 mb-5" role="search">
+                <input class="form-control me-2" type="search" placeholder="Produtos" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="mb-3 d-flex justify-content-between align-items-center col-10 offset-1">
+        <div>
+            <h5 class="text-start">Perfil</h5>
+        </div>
+        <div>
+            <a aria-current="page" href="../componente/petshop.html" target="iFrame"><img src="../img/Loja.png"
+                    class="lojao img-fluid" alt="..." style="width: 50px; height: 50px;"></a>
+            <a aria-current="page" href="../componente/petshop.html" target="iFrame"><img src="../img/configurações.png"
+                    class="lojao img-fluid" alt="..." style="width: 50px; height: 50px;"></a>
+            <a aria-current="page" href="../componente/petshop.html" target="iFrame"><img src="../img/notificacao.png"
+                    class="lojao img-fluid" alt="..." style="width: 50px; height: 50px;"></a>
+        </div>
+    </div>
+    <section class="alternativebody container p-3 col-12 rounded">
+        <div id="dados-perfil" class="d-flex justify-content-between row gap-3 align-items-center">
+            <div class="col-md-5 text-end">
+                <img src="../img/man.jpg" class="carrara img-fluid rounded-circle" alt="..."
+                    style="width: 400px; height: 400px;">
+                <!-- Removido o link/ícone de editar foto por enquanto -->
+            </div>
+            <div class="container-fluid col-md-5 text-start h5 areaDeForms p-3">
+                <div id="perfil-visualizacao">  <!-- Div para a visualização do perfil -->
+                    <div class="d-flex gap-1">
+                        <p>Nome: <span id="nome-perfil"></span></p>
+                    </div>
+                    <div class="d-flex gap-1">
+                        <p>Email: <span id="email-perfil"></span></p>
+                    </div>
+                    <div class="d-flex gap-1">
+                        <p >N° de Pets: <span id="pets-perfil"></span></p>
+                    </div>
+                    <div class="d-flex gap-3 row text-center justify-content-center">
+                        <a href="editarUsuario.html" class="btn btn-primary col-10 col-md-6" id="botao-editar-perfil">Editar Perfil</a>
+                        <button class="btn btn-primary col-10 col-md-6" type="submit" id="botao-sair-conta">Sair da conta</button>
+                    </div>
+                    <button class="btn btn-sm btn-danger m-3 col-5" id="botao-deletar-conta">Deletar conta</button>
+                </div>
+
+                <p id="mensagem-erro-perfil" style="color: red;"></p>
+                <p id="mensagem-sucesso-perfil" style="color: green;"></p>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="../js/perfil.js"></script>
+<script src="../main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</html>

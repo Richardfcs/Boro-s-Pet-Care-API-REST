@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Boro's Pet Care</a>
+        </div>
+    </nav>
+    <h5 class="text-center mt-2">Entre em sua conta para ter acesso aos melhores cuidados para seu pet!</h5>
+    <section class="areaDeForms container p-5 mt-3 col-11 col-md-7 col-lg-4">
+        <a href="index.html" class="pb-5">Caso não tenha uma conta <strong>Inscrever-se.</strong></a>
+        <form id="form-login" class="row g-4 needs-validation pt-3" novalidate>
+            <div class="position-relative">
+                <label for="validationTooltipUsername" class="form-label">E-mail</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                    <input type="email" class="form-control" id="validationTooltipUsername"
+                        aria-describedby="validationTooltipUsernamePrepend" placeholder="nome@exemplo.com" required>
+                </div>
+            </div>
+            <div class="position-relative">
+                <label for="validationTooltip02" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="validationTooltip02" required>
+            </div>
+            </div>
+            <a href="" class="">
+                <h5 class="text-center mt-3 h6">Esqueçeu a senha?</h5>
+            </a>
+            <div class="col-12 text-center">
+                <button class="btn btn-primary col-12" type="submit">Entrar</button>
+            </div>
+            <p id="mensagem-erro-login" style="color: red;"></p>
+        </form>
+    </section>
+</body>
+<script src="js/entrar.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</html>
