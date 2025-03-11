@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch api/server.js"
+  },
+  "keywords": [
+    "Api",
+    "petshop",
+    "Richard"
+  ],
+  "author": "Richardfcs",
+  "license": "ISC",
+  "description": "meu node.js para um trabalho na faculdade",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

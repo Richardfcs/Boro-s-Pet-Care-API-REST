@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimentos do Dia</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <a class="titulo navbar-brand titulo" href="../home.html">Boro's Pet Care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body opacity-75">
+          <strong>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item d-flex justify-content-between align-items-center">
+                <div class=" d-flex justify-content-center align-items-center">
+                  <a class="nav-link active pe-2" aria-current="page" href="./perfil.html"
+                    id="link-perfil-nome">Perfil</a>
+                  <a aria-current="page" href="./perfil.html">
+                    <a aria-current="page" href="componente/perfil.html"><img src="../img/man.jpg"
+                        class="img-fluid rounded-circle" alt="..." style="width: 50px; height: 50px;"></a>
+                </div>
+                <div data-bs-dismiss="offcanvas">
+                  <a href="./pets.html" aria-current="page" class="">Pets</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../home.html">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./vacinas.html">Vacinas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./atendimentos.html">Atendimentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./funeraria.html">Funerária</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./petshop.html">Área Pets</a>
+              </li>
+            </ul>
+          </strong>
+          <form class="d-flex mt-3 mb-5" role="search">
+            <input class="form-control me-2" type="search" placeholder="Produtos" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section id="petshop-categorias" class="container col-8">
+    <h2 class="mb-4 text-center">Categorias do Petshop</h2>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/racao.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-drumstick-bite categoria-icon"></i>
+            <h5 class="card-title">Ração</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/brinquedos.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-paw categoria-icon"></i>
+            <h5 class="card-title">Brinquedos</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/moveis.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-couch categoria-icon"></i>
+            <h5 class="card-title">Móveis</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/acessorios.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-hat-wizard categoria-icon"></i>
+            <h5 class="card-title">Acessórios</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/higiene.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-bath categoria-icon"></i>
+            <h5 class="card-title">Higiene</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card categoria-card" style="background-image: url('../img/vestuario.jpg');">
+          <div class="card-body text-center">
+            <i class="fas fa-tshirt categoria-icon"></i>
+            <h5 class="card-title">Vestuário</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="pt-5 mt-5">Mais conteudo em breve...</p>
+  </section>
+</body>
+<script src="../main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
