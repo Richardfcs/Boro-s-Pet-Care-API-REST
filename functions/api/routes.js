@@ -1,15 +1,14 @@
 import { randomUUID } from 'node:crypto'
 import { Database } from './database.js'
-import { buildRoutePath } from './build-route-path.js'
 
 const database = new Database()
 
 export const routes = [
     {
         method: 'GET',
-        path: buildRoutePath('/'),
+        path: '/', // Path Express padrão - raiz da API
         handler: (req, res) => {
-            const { search } = req.query
+            const { search } = req.query // Express req.query para query parameters
             const users = database.select('api', search ? {
                 name: search,
                 email: search,
@@ -17,14 +16,14 @@ export const routes = [
                 qtdpet: search
             } : null)
 
-            return res.end(JSON.stringify(users))
+            return res.json(users) // res.json() para retornar JSON
         }
     },
     {
         method: 'POST',
-        path: buildRoutePath('/'), 
+        path: '/', // Path Express padrão - raiz da API
         handler: (req, res) => {
-            const { name, email, senha, qtdpet } = req.body
+            const { name, email, senha, qtdpet } = req.body // Express req.body para corpo da requisição
             const user = {
                 id: randomUUID(),
                 name,
@@ -34,15 +33,15 @@ export const routes = [
             }
             database.insert('api', user)
 
-            return res.writeHead(201).end()
+            return res.status(201).send() // res.status(201).send() para status 201 (Created) e resposta vazia
         }
     },
     {
         method: 'PUT',
-        path: buildRoutePath('/perfil/:id'),
+        path: '/perfil/:id', // Path Express padrão com parâmetro :id para atualizar perfil por ID
         handler: (req, res) => {
-            const { id } = req.params
-            const { name, email, senha, qtdpet } = req.body
+            const { id } = req.params // Express req.params para parâmetros de rota
+            const { name, email, senha, qtdpet } = req.body // Express req.body para corpo da requisição
 
             database.update('api', id, {
                 name,
@@ -51,85 +50,77 @@ export const routes = [
                 qtdpet,
             })
 
-            return res.writeHead(204).end()
+            return res.status(204).send() // res.status(204).send() para status 204 (No Content) e resposta vazia
         }
     },
     {
         method: 'DELETE',
-        path: buildRoutePath('/api/:id'), 
+        path: '/api/:id', // Path Express padrão com parâmetro :id para deletar usuário por ID (endpoint /api/ para DELETE)
         handler: (req, res) => {
-            const { id } = req.params
+            const { id } = req.params // Express req.params para parâmetros de rota
 
             database.delete('api', id)
 
-            return res.writeHead(204).end()
+            return res.status(204).send() // res.status(204).send() para status 204 (No Content) e resposta vazia
         }
     },
     {
         method: 'POST',
-        path: buildRoutePath('/login'),
+        path: '/login', // Path Express padrão para rota de login
         handler: async (req, res) => {
-            const { email, senha } = req.body;
+            const { email, senha } = req.body; // Express req.body para corpo da requisição
 
             if (!email || !senha) {
-                return res.writeHead(400, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'Email e senha são obrigatórios.' }));
+                return res.status(400).json({ message: 'Email e senha são obrigatórios.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
             }
 
             const users = database.select('api', { email });
             const user = users[0];
 
             if (!user) {
-                return res.writeHead(404, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'Usuário não encontrado.' }));
+                return res.status(404).json({ message: 'Usuário não encontrado.' }); // res.status(404).json() para status 404 (Not Found) e resposta JSON
             }
             if (user.senha !== senha) {
-                return res.writeHead(401, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'Credenciais inválidas.' }));
+                return res.status(401).json({ message: 'Credenciais inválidas.' }); // res.status(401).json() para status 401 (Unauthorized) e resposta JSON
             }
-            return res.writeHead(200, { 'Content-Type': 'application/json' })
-                .end(JSON.stringify({ message: 'Login bem-sucedido!', username: user.name, email: user.email }));
+            return res.status(200).json({ message: 'Login bem-sucedido!', username: user.name, email: user.email }); // res.status(200).json() para status 200 (OK) e resposta JSON
         }
     },
     {
         method: 'GET',
-        path: buildRoutePath('/perfil'), 
+        path: '/perfil', // Path Express padrão para rota de perfil GET
         handler: async (req, res) => {
-            return res.writeHead(200, { 'Content-Type': 'application/json' })
-                .end(JSON.stringify({ message: 'Rota de perfil (sem proteção real no backend - Opção 1). Autenticação simulada no frontend.' }));
+            return res.status(200).json({ message: 'Rota de perfil (sem proteção real no backend - Opção 1). Autenticação simulada no frontend.' }); // res.status(200).json() para status 200 (OK) e resposta JSON
         }
     },
     {
         method: 'PUT',
-        path: buildRoutePath('/perfil/:id'),
+        path: '/perfil/:id', // Path Express padrão com parâmetro :id para rota de perfil PUT (mesmo path que o PUT anterior, mas handlers diferentes)
         handler: async (req, res) => {
-            const { id } = req.params;
-            const { name, qtdpet, senha, email } = req.body;
-    
+            const { id } = req.params; // Express req.params para parâmetros de rota
+            const { name, qtdpet, senha, email } = req.body; // Express req.body para corpo da requisição
+
             if (!id) {
-                return res.writeHead(400, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'ID do usuário não fornecido.' }));
+                return res.status(400).json({ message: 'ID do usuário não fornecido.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
             }
             if (!name && !qtdpet && !senha && !email) {
-                return res.writeHead(400, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'Nenhum dado para atualizar fornecido.' }));
+                return res.status(400).json({ message: 'Nenhum dado para atualizar fornecido.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
             }
-    
+
             const dadosParaAtualizar = {
                 name: name,
                 email: email,
                 senha: senha,
                 qtdpet: qtdpet,
             };
-    
+
             try {
                 database.update('api', id, dadosParaAtualizar);
-                return res.writeHead(204).end();
+                return res.status(204).send(); // res.status(204).send() para status 204 (No Content) e resposta vazia
             } catch (error) {
                 console.error('Erro ao atualizar perfil:', error);
-                return res.writeHead(500, { 'Content-Type': 'application/json' })
-                    .end(JSON.stringify({ message: 'Erro interno ao atualizar perfil.' }));
+                return res.status(500).json({ message: 'Erro interno ao atualizar perfil.' }); // res.status(500).json() para status 500 (Internal Server Error) e resposta JSON
             }
         }
     },
-]
+];

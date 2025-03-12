@@ -15,8 +15,8 @@ export class Database {
             })
     }
 
-    #persist() {
-        fs.writeFile(databasePath, JSON.stringify(this.#database, null, 2))
+    async #persist() { // Função #persist continua async e com await (boa prática)
+        await fs.writeFile(databasePath, JSON.stringify(this.#database, null, 2))
     }
 
     select(table, search) {
@@ -32,38 +32,38 @@ export class Database {
         return data
     }
 
-    insert(table, data) {
+    async insert(table, data) { // Função insert continua async
         if (Array.isArray(this.#database[table])) {
             this.#database[table].push(data)
         } else {
             this.#database[table] = [data]
         }
 
-        this.#persist()
+        await this.#persist() // await para esperar a persistência
 
         return data
     }
 
-    update(table, id, data) {
+    async update(table, id, data) { // Função update continua async
         const rowIndex = this.#database[table].findIndex(row => row.id === id)
 
         if (rowIndex > -1) {
             this.#database[table][rowIndex] = { id, ...data }
-            this.#persist()
+            await this.#persist() // await para esperar a persistência
         }
     }
 
-    delete(table, id) {
+    async delete(table, id) { // Função delete continua async
         const rowIndex = this.#database[table].findIndex(row => row.id === id)
 
         if (rowIndex > -1) {
             this.#database[table].splice(rowIndex, 1)
-            this.#persist()
+            await this.#persist() // await para esperar a persistência
         }
     }
 
-    findUserByEmail(table, email) {
+    findUserByEmail(table, email) { // Função findUserByEmail volta a ser síncrona (sem bcrypt)
         const data = this.#database[table] ?? [];
-        return data.find(user => user.email === email);
+        return data.find(user => user.email === email); // Retorna o usuário encontrado (ou undefined)
     }
 }
