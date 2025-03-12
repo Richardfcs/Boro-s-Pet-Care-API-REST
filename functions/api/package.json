@@ -2,10 +2,10 @@
   "name": "api",
   "version": "1.0.0",
   "description": "meu node.js para um trabalho na faculdade",
-  "main": "_generated.js",
+  "main": "api.js",
   "scripts": {
-    "dev": "node --watch _generated.js",
-    "start": "node _generated.js"
+    "dev": "node --watch api.js",
+    "start": "node api.js"
   },
   "keywords": [
     "Api",

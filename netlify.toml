@@ -2,10 +2,5 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
 
-[[function]]
--  function = "api"
-+ function = "_generated"
-  path = "/.netlify/functions/api"
-
 [[plugins]]
   package = "@netlify/plugin-functions-install-core"
