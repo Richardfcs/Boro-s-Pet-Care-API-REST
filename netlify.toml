@@ -2,8 +2,9 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
   directory = "functions/api"
+  included_files = ["db.json"]
 
-[[functions]]
+[[function]]
   function = "api"
   path = "/.netlify/functions/api"
 
