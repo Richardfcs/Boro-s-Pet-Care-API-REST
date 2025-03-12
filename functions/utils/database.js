@@ -1,15 +1,15 @@
 import faunadb from 'faunadb';
 
-const FAUNA_SECRET = process.env.FAUNA_SECRET_KEY; // Recupera a chave secreta da variável de ambiente
+const FAUNA_SECRET = process.env.FAUNA_SECRET_KEY;
 
 if (!FAUNA_SECRET) {
     console.error("Erro: Variável de ambiente FAUNA_SECRET_KEY não configurada!");
-    process.exit(1); // Encerra a função se a chave secreta não estiver configurada
+    process.exit(1);
 }
 
 const client = new faunadb.Client({
     secret: FAUNA_SECRET,
-    domain: 'db.fauna.com', // ou sua região FaunaDB, se diferente de 'US'
+    domain: 'db.fauna.com',
     port: 443,
     scheme: 'https',
 });
@@ -29,7 +29,7 @@ export class Database {
             return dbs.data.map(doc => ({ id: doc.ref.id, ...doc.data }));
         } catch (error) {
             console.error("Erro ao selecionar dados do FaunaDB:", error);
-            return []; // Retorna um array vazio em caso de erro
+            return []; 
         }
     }
 
@@ -41,7 +41,7 @@ export class Database {
             return { id: result.ref.id, ...result.data };
         } catch (error) {
             console.error("Erro ao inserir dados no FaunaDB:", error);
-            return null; // Retorna null em caso de erro
+            return null; 
         }
     }
 
@@ -50,10 +50,10 @@ export class Database {
             await client.query(
                 q.Update(q.Ref(q.Collection(table), id), { data })
             );
-            return true; // Retorna true se a atualização for bem-sucedida
+            return true;
         } catch (error) {
             console.error("Erro ao atualizar dados no FaunaDB:", error);
-            return false; // Retorna false em caso de erro
+            return false;
         }
     }
 
@@ -62,10 +62,10 @@ export class Database {
             await client.query(
                 q.Delete(q.Ref(q.Collection(table), id))
             );
-            return true; // Retorna true se a exclusão for bem-sucedida
+            return true;
         } catch (error) {
             console.error("Erro ao excluir dados do FaunaDB:", error);
-            return false; // Retorna false em caso de erro
+            return false; 
         }
     }
 
@@ -73,7 +73,7 @@ export class Database {
         try {
             const dbs = await client.query(
                 q.Map(
-                    q.Paginate(q.Match(q.Index(`${table}_by_email`), email)), // Assume index named 'api_by_email'
+                    q.Paginate(q.Match(q.Index(`${table}_by_email`), email)),
                     q.Lambda(x => q.Get(x))
                 )
             );
@@ -81,11 +81,11 @@ export class Database {
                 const doc = dbs.data[0];
                 return { id: doc.ref.id, ...doc.data };
             } else {
-                return null; // Usuário não encontrado
+                return null; 
             }
         } catch (error) {
             console.error("Erro ao buscar usuário por email no FaunaDB:", error);
-            return null; // Retorna null em caso de erro
+            return null;
         }
     }
 }

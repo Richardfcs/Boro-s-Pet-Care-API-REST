@@ -6,9 +6,9 @@ const database = new Database()
 export const routes = [
     {
         method: 'GET',
-        path: '/', // Path Express padrão - raiz da API
+        path: '/', 
         handler: (req, res) => {
-            const { search } = req.query // Express req.query para query parameters
+            const { search } = req.query 
             const users = database.select('api', search ? {
                 name: search,
                 email: search,
@@ -16,19 +16,19 @@ export const routes = [
                 qtdpet: search
             } : null)
 
-            return res.json(users) // res.json() para retornar JSON
+            return res.json(users) 
         }
     },
     {
         method: 'POST',
         path: '/',
         handler: (req, res) => {
-            console.log("----- INÍCIO DO HANDLER POST -----"); // Log no início
-            console.log("req.body:", req.body); // Log do corpo da requisição
+            console.log("----- INÍCIO DO HANDLER POST -----"); 
+            console.log("req.body:", req.body); 
     
             const { name, email, senha, qtdpet } = req.body;
     
-            console.log("name:", name); // Log de cada variável extraída
+            console.log("name:", name); 
             console.log("email:", email);
             console.log("senha:", senha);
             console.log("qtdpet:", qtdpet);
@@ -43,24 +43,24 @@ export const routes = [
     
             console.log("user (objeto criado):", user);
     
-            try { // Adicione um try-catch aqui também, se ainda não tiver
-                const result = database.insert('api', user); // Tenta inserir
-                console.log("Resultado do database.insert:", result); // Log do resultado
+            try { 
+                const result = database.insert('api', user);
+                console.log("Resultado do database.insert:", result); 
                 return res.status(201).send();
             } catch (error) {
-                console.error("Erro no database.insert:", error); // Log de erro, se houver
+                console.error("Erro no database.insert:", error); 
                 return res.status(500).json({ message: "Erro ao inserir usuário." });
             }
     
-            console.log("----- FIM DO HANDLER POST -----"); // Log no final
+            console.log("----- FIM DO HANDLER POST -----"); 
         }
     },
     {
         method: 'PUT',
-        path: '/perfil/:id', // Path Express padrão com parâmetro :id para atualizar perfil por ID
+        path: '/perfil/:id', 
         handler: (req, res) => {
-            const { id } = req.params // Express req.params para parâmetros de rota
-            const { name, email, senha, qtdpet } = req.body // Express req.body para corpo da requisição
+            const { id } = req.params 
+            const { name, email, senha, qtdpet } = req.body 
 
             database.update('api', id, {
                 name,
@@ -69,36 +69,36 @@ export const routes = [
                 qtdpet,
             })
 
-            return res.status(204).send() // res.status(204).send() para status 204 (No Content) e resposta vazia
+            return res.status(204).send() 
         }
     },
     {
         method: 'DELETE',
-        path: '/api/:id', // Path Express padrão com parâmetro :id para deletar usuário por ID (endpoint /api/ para DELETE)
+        path: '/api/:id', 
         handler: (req, res) => {
-            const { id } = req.params // Express req.params para parâmetros de rota
+            const { id } = req.params 
 
             database.delete('api', id)
 
-            return res.status(204).send() // res.status(204).send() para status 204 (No Content) e resposta vazia
+            return res.status(204).send() 
         }
     },
     {
         method: 'POST',
         path: '/login',
-        handler: async (req, res) => { // Handler agora é async
+        handler: async (req, res) => { 
             const { email, senha } = req.body;
     
             if (!email || !senha) {
                 return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
             }
     
-            const user = await database.findUserByEmail('api', email); // Chamar findUserByEmail (agora async) com await
+            const user = await database.findUserByEmail('api', email); 
     
             if (!user) {
                 return res.status(404).json({ message: 'Usuário não encontrado.' });
             }
-            if (user.senha !== senha) { // Comparação de senhas em texto plano (para este exemplo simplificado)
+            if (user.senha !== senha) { 
                 return res.status(401).json({ message: 'Credenciais inválidas.' });
             }
             return res.status(200).json({ message: 'Login bem-sucedido!', username: user.name, email: user.email, id: user.id }); // Incluir id do usuário no retorno
@@ -106,23 +106,23 @@ export const routes = [
     },
     {
         method: 'GET',
-        path: '/perfil', // Path Express padrão para rota de perfil GET
+        path: '/perfil', 
         handler: async (req, res) => {
             return res.status(200).json({ message: 'Rota de perfil (sem proteção real no backend - Opção 1). Autenticação simulada no frontend.' }); // res.status(200).json() para status 200 (OK) e resposta JSON
         }
     },
     {
         method: 'PUT',
-        path: '/perfil/:id', // Path Express padrão com parâmetro :id para rota de perfil PUT (mesmo path que o PUT anterior, mas handlers diferentes)
+        path: '/perfil/:id',
         handler: async (req, res) => {
-            const { id } = req.params; // Express req.params para parâmetros de rota
-            const { name, qtdpet, senha, email } = req.body; // Express req.body para corpo da requisição
+            const { id } = req.params;
+            const { name, qtdpet, senha, email } = req.body;
 
             if (!id) {
-                return res.status(400).json({ message: 'ID do usuário não fornecido.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
+                return res.status(400).json({ message: 'ID do usuário não fornecido.' }); 
             }
             if (!name && !qtdpet && !senha && !email) {
-                return res.status(400).json({ message: 'Nenhum dado para atualizar fornecido.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
+                return res.status(400).json({ message: 'Nenhum dado para atualizar fornecido.' });
             }
 
             const dadosParaAtualizar = {
@@ -134,10 +134,10 @@ export const routes = [
 
             try {
                 database.update('api', id, dadosParaAtualizar);
-                return res.status(204).send(); // res.status(204).send() para status 204 (No Content) e resposta vazia
+                return res.status(204).send(); 
             } catch (error) {
                 console.error('Erro ao atualizar perfil:', error);
-                return res.status(500).json({ message: 'Erro interno ao atualizar perfil.' }); // res.status(500).json() para status 500 (Internal Server Error) e resposta JSON
+                return res.status(500).json({ message: 'Erro interno ao atualizar perfil.' }); 
             }
         }
     },
