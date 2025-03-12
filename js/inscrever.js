@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             qtdpet: qtdpet
         };
 
-        fetch('/.netlify/functions/api/api', {
+        fetch('/.netlify/functions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
