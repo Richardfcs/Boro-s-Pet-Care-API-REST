@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 
-const databasePath = new URL('db.json', import.meta.url)
+// const databasePath = new URL('db.json', import.meta.url)
+const databasePath = '/var/task/functions/api/db.json'; // ADICIONE ESTA LINHA - PATH ABSOLUTO HARDCODED (TEMPORÁRIO)
 
 export class Database {
     #database = {}
