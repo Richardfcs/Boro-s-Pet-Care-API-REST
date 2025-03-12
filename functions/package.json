@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "meu node.js para um trabalho na faculdade",
   "main": "api.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch api.js",
     "start": "node api.js"
@@ -14,7 +15,6 @@
   ],
   "author": "Richardfcs",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@netlify/functions": "^3.0.1",
     "@types/express": "^5.0.0",
