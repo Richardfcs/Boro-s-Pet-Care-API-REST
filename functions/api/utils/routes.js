@@ -23,10 +23,16 @@ export const routes = [
         method: 'POST',
         path: '/',
         handler: (req, res) => {
-            console.log("Handler POST / chamado!"); // Adicione logs
-            console.log("req.body:", req.body);
+            console.log("----- INÍCIO DO HANDLER POST -----"); // Log no início
+            console.log("req.body:", req.body); // Log do corpo da requisição
     
             const { name, email, senha, qtdpet } = req.body;
+    
+            console.log("name:", name); // Log de cada variável extraída
+            console.log("email:", email);
+            console.log("senha:", senha);
+            console.log("qtdpet:", qtdpet);
+    
             const user = {
                 id: randomUUID(),
                 name,
@@ -35,11 +41,18 @@ export const routes = [
                 qtdpet,
             }
     
-            console.log("user:", user);
+            console.log("user (objeto criado):", user);
     
-            database.insert('api', user);
+            try { // Adicione um try-catch aqui também, se ainda não tiver
+                const result = database.insert('api', user); // Tenta inserir
+                console.log("Resultado do database.insert:", result); // Log do resultado
+                return res.status(201).send();
+            } catch (error) {
+                console.error("Erro no database.insert:", error); // Log de erro, se houver
+                return res.status(500).json({ message: "Erro ao inserir usuário." });
+            }
     
-            return res.status(201).send()
+            console.log("----- FIM DO HANDLER POST -----"); // Log no final
         }
     },
     {

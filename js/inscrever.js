@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
     const formInscricao = document.getElementById('form-inscricao');
 
     formInscricao.addEventListener('submit', (event) => {
@@ -11,12 +11,16 @@ document.addEventListener('DOMContentLoaded', () =>{
         const qtdpetValue = qtdpetSelect.value;
         const qtdpet = qtdpetValue === '4+' ? '4' : qtdpetValue;
 
+        // ... (seu código anterior) ...
+
         const NovoUsuario = {
             name: nome,
             email: email,
             senha: senha,
             qtdpet: qtdpet
         };
+
+        console.log("NovoUsuario (antes do fetch):", NovoUsuario); // ADICIONE ESTE LOG
 
         fetch('/.netlify/functions/api', {
             method: 'POST',
@@ -25,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () =>{
             },
             body: JSON.stringify(NovoUsuario, null, 2)
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro ao inscrever: ${response.status}`)
-            }
-            window.location.href = 'entrar.html';
-        })
-        .catch(error => {
-            console.error('Erro ao inscrever:', error);
-            alert('Erro ao realizar inscrição. Verifique o console para mais detalhes.');
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro ao inscrever: ${response.status}`)
+                }
+                window.location.href = 'entrar.html';
+            })
+            .catch(error => {
+                console.error('Erro ao inscrever:', error);
+                alert('Erro ao realizar inscrição. Verifique o console para mais detalhes.');
+            });
     });
 
 });
