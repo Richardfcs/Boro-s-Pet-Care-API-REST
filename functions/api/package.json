@@ -1,10 +1,11 @@
 {
-  "name": "nodejs",
-  "type": "module",
+  "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "meu node.js para um trabalho na faculdade",
+  "main": "build-route-path.js",
   "scripts": {
-    "dev": "node --watch api/server.js"
+    "dev": "node --watch api/server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "Api",
@@ -13,7 +14,7 @@
   ],
   "author": "Richardfcs",
   "license": "ISC",
-  "description": "meu node.js para um trabalho na faculdade",
+  "type": "module",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
