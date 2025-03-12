@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import serverless from "serverless-http"; // Certifique-se de que esta importação está presente!
 
-import { routes } from './routes.js';
+import { routes } from './utils/routes.js';
 
 const app = express();
 
