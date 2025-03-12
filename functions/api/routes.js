@@ -66,24 +66,23 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: '/login', // Path Express padrão para rota de login
-        handler: async (req, res) => {
-            const { email, senha } = req.body; // Express req.body para corpo da requisição
-
+        path: '/login',
+        handler: async (req, res) => { // Handler agora é async
+            const { email, senha } = req.body;
+    
             if (!email || !senha) {
-                return res.status(400).json({ message: 'Email e senha são obrigatórios.' }); // res.status(400).json() para status 400 (Bad Request) e resposta JSON
+                return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
             }
-
-            const users = database.select('api', { email });
-            const user = users[0];
-
+    
+            const user = await database.findUserByEmail('api', email); // Chamar findUserByEmail (agora async) com await
+    
             if (!user) {
-                return res.status(404).json({ message: 'Usuário não encontrado.' }); // res.status(404).json() para status 404 (Not Found) e resposta JSON
+                return res.status(404).json({ message: 'Usuário não encontrado.' });
             }
-            if (user.senha !== senha) {
-                return res.status(401).json({ message: 'Credenciais inválidas.' }); // res.status(401).json() para status 401 (Unauthorized) e resposta JSON
+            if (user.senha !== senha) { // Comparação de senhas em texto plano (para este exemplo simplificado)
+                return res.status(401).json({ message: 'Credenciais inválidas.' });
             }
-            return res.status(200).json({ message: 'Login bem-sucedido!', username: user.name, email: user.email }); // res.status(200).json() para status 200 (OK) e resposta JSON
+            return res.status(200).json({ message: 'Login bem-sucedido!', username: user.name, email: user.email, id: user.id }); // Incluir id do usuário no retorno
         }
     },
     {
