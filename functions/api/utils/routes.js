@@ -21,9 +21,12 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: '/', // Path Express padrão - raiz da API
+        path: '/',
         handler: (req, res) => {
-            const { name, email, senha, qtdpet } = req.body // Express req.body para corpo da requisição
+            console.log("Handler POST / chamado!"); // Adicione logs
+            console.log("req.body:", req.body);
+    
+            const { name, email, senha, qtdpet } = req.body;
             const user = {
                 id: randomUUID(),
                 name,
@@ -31,9 +34,12 @@ export const routes = [
                 senha,
                 qtdpet,
             }
-            database.insert('api', user)
-
-            return res.status(201).send() // res.status(201).send() para status 201 (Created) e resposta vazia
+    
+            console.log("user:", user);
+    
+            database.insert('api', user);
+    
+            return res.status(201).send()
         }
     },
     {
