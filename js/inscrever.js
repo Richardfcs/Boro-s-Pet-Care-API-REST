@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(NovoUsuario, null, 2)
+            body: JSON.stringify(NovoUsuario)
         })
             .then(response => {
                 if (!response.ok) {
