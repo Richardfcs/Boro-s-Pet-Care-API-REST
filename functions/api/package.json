@@ -2,9 +2,9 @@
   "name": "api",
   "version": "1.0.0",
   "description": "meu node.js para um trabalho na faculdade",
-  "main": "build-route-path.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "node --watch api/server.js",
+    "dev": "node --watch server.js",
     "start": "node server.js"
   },
   "keywords": [
