@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { Database } from './database.js' // Importe o Database
+import { Database } from './database.js'
 import { buildRoutePath } from './utils/build-route-path.js'
 
 const database = new Database()
@@ -7,7 +7,7 @@ const database = new Database()
 export const routes = [
     {
         method: 'GET',
-        path: buildRoutePath('/api'),
+        path: buildRoutePath('/'),
         handler: (req, res) => {
             const { search } = req.query
             const users = database.select('api', search ? {
@@ -22,7 +22,7 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: buildRoutePath('/api'),
+        path: buildRoutePath('/'), 
         handler: (req, res) => {
             const { name, email, senha, qtdpet } = req.body
             const user = {
@@ -39,7 +39,7 @@ export const routes = [
     },
     {
         method: 'PUT',
-        path: buildRoutePath('/api/:id'),
+        path: buildRoutePath('/perfil/:id'),
         handler: (req, res) => {
             const { id } = req.params
             const { name, email, senha, qtdpet } = req.body
@@ -56,7 +56,7 @@ export const routes = [
     },
     {
         method: 'DELETE',
-        path: buildRoutePath('/api/:id'),
+        path: buildRoutePath('/api/:id'), 
         handler: (req, res) => {
             const { id } = req.params
 
@@ -67,7 +67,7 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: buildRoutePath('/api/login'),
+        path: buildRoutePath('/login'),
         handler: async (req, res) => {
             const { email, senha } = req.body;
 
@@ -93,7 +93,7 @@ export const routes = [
     },
     {
         method: 'GET',
-        path: buildRoutePath('/api/perfil'),
+        path: buildRoutePath('/perfil'), 
         handler: async (req, res) => {
             return res.writeHead(200, { 'Content-Type': 'application/json' })
                 .end(JSON.stringify({ message: 'Rota de perfil (sem proteção real no backend - Opção 1). Autenticação simulada no frontend.' }));
@@ -101,7 +101,7 @@ export const routes = [
     },
     {
         method: 'PUT',
-        path: buildRoutePath('/api/perfil/:id'),
+        path: buildRoutePath('/perfil/:id'),
         handler: async (req, res) => {
             const { id } = req.params;
             const { name, qtdpet, senha, email } = req.body;
